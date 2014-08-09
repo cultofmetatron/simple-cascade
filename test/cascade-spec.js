@@ -67,7 +67,7 @@ describe('cascade', function() {
       next('deautchland')
     };
 
-    cascade(fn1, fn2, cascade(fn2_1, fn2_2, cascade(fn2_1, fn2_2)) , fn3).call({ctx:'ctx'}, 2, 3, function(req, res) { 
+    cascade(fn1, fn2, cascade(cascade(fn2_1,fn2_1), fn2_2, cascade(fn2_1, fn2_2)) , fn3).call({ctx:'ctx'}, 2, 3, function(req, res) { 
       req.should.equal(2);
       res.should.equal(3);
       console.log('finally');
