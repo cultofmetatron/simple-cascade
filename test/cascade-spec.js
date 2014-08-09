@@ -69,7 +69,39 @@ describe('cascade', function() {
     });
   });
 
+  it('should let me attach an error handler', function(done) {
+    var fn1 = function(req, res, next) {
+      req.should.equal(2);
+      res.should.equal(3);
+      next(new Error('rololo'));
+    };
 
+    var fn2 = function(req, res, next){
+      req.should.equal(2);
+      res.should.equal(3);
+      next(new Error('sample error'));
+    };
+
+    fn2_onError = function(err, req, res, next) {
+      err.message.should.equal('sample error')
+    
+    };
+
+    var fn3 = function(req, res, next){
+      req.should.equal(2);
+      res.should.equal(3);
+      next();
+    };
+
+
+    var flow = cascade(fn1, [fn2, fn2_onError], function(req, res) {
+      req.should.equal(2);
+      res.should.equal(3);
+      done();
+    });
+    
+      
+  })
 
 
 })
