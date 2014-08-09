@@ -1,0 +1,25 @@
+{
+  "name": "simple-cascade",
+  "version": "0.0.0",
+  "description": "a simple cascade generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cultofmetatron/simple-cascade.git"
+  },
+  "keywords": [
+    "cascade",
+    "express-like",
+    "flow",
+    "control"
+  ],
+  "author": "Peter de Croos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cultofmetatron/simple-cascade/issues"
+  },
+  "homepage": "https://github.com/cultofmetatron/simple-cascade"
+}
