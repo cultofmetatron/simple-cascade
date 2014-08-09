@@ -1,6 +1,5 @@
 var mocha  = require('mocha');
 var should = require('should');
-var _ = require('lodash');
 
 describe('cascade', function() {
 
