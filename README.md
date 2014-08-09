@@ -6,6 +6,8 @@ A basic utility function for composing cascade flows between functions
 Do you like the control flow scheme in express? well I made a simple utility function that allows you to
 generate control flow in a similar way.
 
+I made it nestable too so you can nest a function returned from cascade into another cascade sequence!
+
 
 ###Usage
 
@@ -26,3 +28,10 @@ generate control flow in a similar way.
 
 
 ```
+
+###TODOS
+
+* Impliment basic error handling
+* write more tests!?
+
+
