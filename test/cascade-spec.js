@@ -35,41 +35,47 @@ describe('cascade', function() {
     var fn1 = function(req, res, next) {
       req.should.equal(2);
       res.should.equal(3);
-      next();
+      console.log('fn1')
+      next('stranger love');
     };
 
     var fn2 = function(req, res, next){
       req.should.equal(2);
       res.should.equal(3);
-      next();
+      console.log('fn2')
+      next('stranger danger');
     };
 
     var fn2_1 = function(req, res, next){
       req.should.equal(2);
       res.should.equal(3);
-      next();
+      console.log('fn2_1');
+      next('shiett');
     };
 
     var fn2_2 = function(req, res, next){
       req.should.equal(2);
       res.should.equal(3);
-      next();
+      console.log('fn2_2');
+      next('hello');
     };
 
     var fn3 = function(req, res, next) {
       req.should.equal(2);
       res.should.equal(3);
-      next()
+      console.log('fn3')
+      next('deautchland')
     };
 
-    cascade(fn1, fn2, cascade(fn2_1, fn2_2) , fn3)(2, 3, function(req, res) { 
+    cascade(fn1, fn2, cascade(fn2_1, fn2_2, cascade(fn2_1, fn2_2)) , fn3).call({ctx:'ctx'}, 2, 3, function(req, res) { 
       req.should.equal(2);
       res.should.equal(3);
+      console.log('finally');
       done(); 
     });
   });
 
-  it('should let me attach an error handler', function(done) {
+  xit('should let me attach an error handler', function(done) {
     var fn1 = function(req, res, next) {
       req.should.equal(2);
       res.should.equal(3);
